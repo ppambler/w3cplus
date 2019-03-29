@@ -10,6 +10,8 @@ typora-copy-images-to: img\00
 
 **➹：**[How To Understand and Modify the DOM in JavaScript - DigitalOcean](https://www.digitalocean.com/community/tutorials/introduction-to-the-dom)
 
+**➹：**[文档对象模型 (DOM) - Web API 接口参考 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model)
+
 ## ★总结
 
 - 浏览器生成的DOM与其HTML源代码之间的区别：
@@ -86,8 +88,6 @@ document.body.parentElement; // => the <html> element
 document.documentElement.parentNode; // => the document node 
 document.documentElement.parentElement; // => null
 ```
-
-③对文本
 
 由于`<html>`元素（ `document.documentElement` ）没有作为元素的父元素，因此`parentElement`为`null` 。 （还有其他更不可能的情况， `parentElement`可能为`null` ，但**您可能永远不会遇到它们**。也就是虽然存在，但就是用不到！）
 
@@ -235,3 +235,11 @@ todoList.lastElementChild.remove()
 ```
 
 总之，使用`removeChild()`和`remove()`可以从DOM中**删除任何节点**。除此之外还有一个更诡异的方法可以删除子节点，那就是将父元素的`innerHTML`属性值设置为空字符串（`' '`）。使用这种方法将会**一次性将父元素的所有节点删除**，不过这不是首选方法，因为你无法删除指定的节点。
+
+### ⑧那么DOM到底是什么？
+
+**文档对象模型 (DOM)** 将 web 页面与到脚本或编程语言连接起来。通常是指  JavaScript，但将 HTML、SVG 或 XML 文档建模为对象并不是 JavaScript 语言的一部分。DOM模型用一个**逻辑树**来表示一个文档，树的每个分支的终点都是一个节点(node)，每个节点都包含着对象(objects)。DOM的方法(methods)让你可以**用特定方式操作这个树**，用这些方法你可以**改变文档的结构（HTML元素）、样式（CSS）或者内容（你看到的页面所呈现的那些文本、图片等内容，可以理解为文本节点）**。**节点可以关联上事件处理器，一旦某一事件被触发了，那些事件处理器就会被执行。**
+
+> 后面那句话很关键！
+
+**➹：**[文档对象模型 (DOM) - Web API 接口参考 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model)
